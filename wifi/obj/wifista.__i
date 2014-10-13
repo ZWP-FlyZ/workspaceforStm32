@@ -2,4 +2,4 @@
 -I D:\Keil\ARM\RV31\INC 
 -I D:\Keil\ARM\CMSIS\Include 
 -I D:\Keil\ARM\Inc\ST\STM32F10x 
--DSTM32F10X_HD -o "..\obj\led.o" --omf_browse "..\obj\led.crf" --depend "..\obj\led.d" "..\hardware\led\LED.c"
+-DSTM32F10X_HD -o "..\obj\wifista.o" --omf_browse "..\obj\wifista.crf" --depend "..\obj\wifista.d" "..\wifi\wifista.c"

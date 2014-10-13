@@ -1,0 +1,15 @@
+..\obj\common.o: ..\wifi\common.c
+..\obj\common.o: ..\wifi\common.h
+..\obj\common.o: ..\system\sys\sys.h
+..\obj\common.o: ..\system\sys\stm32f10x.h
+..\obj\common.o: D:\Keil\ARM\CMSIS\Include\core_cm3.h
+..\obj\common.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+..\obj\common.o: D:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+..\obj\common.o: D:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+..\obj\common.o: ..\system\sys\system_stm32f10x.h
+..\obj\common.o: ..\system\usart\usart.h
+..\obj\common.o: D:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+..\obj\common.o: ..\system\delay\delay.h
+..\obj\common.o: ..\hardware\led\led.h
+..\obj\common.o: D:\Keil\ARM\ARMCC\bin\..\include\string.h
+..\obj\common.o: ..\hardware\USART2\usart2.h

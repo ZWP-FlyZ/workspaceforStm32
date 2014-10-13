@@ -2,6 +2,7 @@
 #include "usart.h"
 #include "delay.h"
 #include "LED.h"
+#include "common.h"
 
 int main (void)
 {
@@ -11,12 +12,16 @@ int main (void)
 			uart_init(72,9600);
       led_init();
 	
-	    while(1)
-			{
-				printf("t : %d\n",t);
-				delay_ms(500);
-				t++;
-				LED0=!LED0;
-			}
+	   atk_rm04_init();		//³õÊ¼»¯RM04Ä£¿é
+	   atk_rm04_test();
+	
+	
+// 	    while(1)
+// 			{
+// 				printf("t : %d\n",t);
+// 				delay_ms(500);
+// 				t++;
+// 				LED0=!LED0;
+// 			}
 	
 }
