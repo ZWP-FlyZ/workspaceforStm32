@@ -1,0 +1,5 @@
+-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I..\system\delay -I..\system\sys -I..\system\usart -I..\hardware\led 
+-I D:\Keil\ARM\RV31\INC 
+-I D:\Keil\ARM\CMSIS\Include 
+-I D:\Keil\ARM\Inc\ST\STM32F10x 
+-DSTM32F10X_HD -o "..\obj\main.o" --omf_browse "..\obj\main.crf" --depend "..\obj\main.d" "main.c"
