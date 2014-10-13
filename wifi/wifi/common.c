@@ -20,10 +20,10 @@
 const u8* portnum="8086";		 
 
 //WIFI STA模式,设置要去连接的路由器无线参数,请根据你自己的路由器设置,自行修改.
-const u8* wifista_ssid="ALIENTEK";			//路由器SSID号
+const u8* wifista_ssid="05zwp";			//路由器SSID号
 const u8* wifista_encryption="wpawpa2_aes";	//wpa/wpa2 aes加密方式
-const u8* wifista_password="15902020353"; 	//连接密码
-
+const u8* wifista_password="301415926"; 	//连接密码
+const u8* remoteIp ="192.168.1.30";
 
 
 void atk_rm04_init(void)
@@ -151,6 +151,8 @@ u8 atk_rm04_get_wifista_state(void)
 	u8 *p; 
 	atk_rm04_send_cmd("at+wifi_ConState=?","?",20);	//获取WIFI STA连接状态
 	p=atk_rm04_check_cmd("\r\n"); 
+	
+	printf(" p = %s  \n\n",p);
 	return strstr((const char*)p,"Connected")?1:0;
 }
 

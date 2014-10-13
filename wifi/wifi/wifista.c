@@ -48,17 +48,16 @@ u8 atk_rm04_wifista_test(void)
 	
 	
 	
-		sprintf((char*)p,"at+remoteip=%s",ipbuf);
+		sprintf((char*)p,"at+remoteip=%s",remoteIp);
 		atk_rm04_send_cmd(p,"ok",500);					//设置远端(连接)IP地址. 
 		atk_rm04_send_cmd("at+mode=client","ok",500);	//设置为客户端		
-				 
+		 printf(" remote  ip = %s \n",remoteIp);		 
 	
 	
-          printf(" wifi model is configing ...  \n");
+     printf(" wifi model is configing ...  \n");
 
 	if(atk_rm04_send_cmd("at+net_commit=1","\r\n",4000))//提交网络配置,最长可能需要等待40s
  	{ 
-	
 	  printf(" wifi model is configed error   \n");
 		delay_ms(800);        
 		res=1; 
@@ -71,7 +70,6 @@ u8 atk_rm04_wifista_test(void)
 		atk_rm04_quit_trans();						//退出透传
 		while(atk_rm04_get_wifista_state()==0)		//等待ATK-RM04连接上路由器 
 		{ 	
-		
 			delay_ms(800);  
          printf("router conneted error \n");			
 			delay_ms(800); 
@@ -82,34 +80,39 @@ u8 atk_rm04_wifista_test(void)
 		while(1)
 		{
 			
-				sprintf((char*)p,"ATK-RM04 测试%02d\r\n",t++);//测试数据
-				printf(" send msg : %s ",p);
-				u2_printf("%s",p);		//发送该数据到ATK-RM04模块
+			  if(t%100==0)	
+				{
+					 sprintf((char*)p,"ATK-RM04 测试%02d\r\n",t);//测试数据
+ 				   printf(" send msg : %s ",p);
+ 				   u2_printf("%s",p);		//发送该数据到ATK-RM04模块
+        }
+			 
 			
 			delay_ms(10);
 			if(USART2_RX_STA&0X8000)		//接收到一次数据了
 			{ 
 				rlen=USART2_RX_STA&0X7FFF;	//得到本次接收到的数据长度
 				USART2_RX_BUF[rlen]=0;		//添加结束符 
-				printf("%s",USART2_RX_BUF);	//发送到串口   
-				sprintf((char*)p,"收到%d字节,内容如下",rlen);//接收到的字节数
+			   
+				sprintf((char*)p,"收到%d字节,内容如下",rlen);//接收到的字节数	
+				//printf(" recive data %s \n",p);
+				printf(" %s + t= %d\n",USART2_RX_BUF,t);
 				
-				printf(" recive data %s \n",p);
-				printf(" %s ",USART2_RX_BUF);
-				
-				USART2_RX_STA=0;
-				             
+				USART2_RX_STA=0;			             
 			}  
 			
-// 			if(t==1000)//连续10秒钟没有收到任何数据,检查连接是不是还存在.
-// 			{
-// 				constate=atk_rm04_consta_check()-'0';//得到连接状态
-// 				if(constate)Show_Str(30+30,80,200,12,"连接成功",12,0);  //连接状态
-// 				else Show_Str(30+30,80,200,12,"连接失败",12,0); 	 
-// 				t=0;
-// 			}
-			if((t%20)==0)LED0=!LED0;
+			if(t%1000==0)//连续10秒钟没有收到任何数据,检查连接是不是还存在.
+			{
+				constate=atk_rm04_consta_check()-'0';//得到连接状态
+				if(constate)
+					printf("connect seuccess\n");  //连接状态
+				else
+				printf("connect fales\n"); 
+				t=0;
+			}
+		
 			
+			t++;
 		}
 	} 
 	
