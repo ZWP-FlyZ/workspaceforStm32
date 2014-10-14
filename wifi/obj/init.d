@@ -1,0 +1,10 @@
+..\obj\init.o: ..\hardware\Init\init.c
+..\obj\init.o: ..\hardware\Init\init.h
+..\obj\init.o: ..\hardware\led\LED.h
+..\obj\init.o: ..\system\sys\sys.h
+..\obj\init.o: ..\system\sys\stm32f10x.h
+..\obj\init.o: D:\Keil\ARM\CMSIS\Include\core_cm3.h
+..\obj\init.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+..\obj\init.o: D:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+..\obj\init.o: D:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+..\obj\init.o: ..\system\sys\system_stm32f10x.h

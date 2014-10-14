@@ -1,23 +1,8 @@
 #include "common.h"
-/////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-//本程序只供学习使用，未经作者许可，不得用于其它任何用途
-//ALIENTEK STM32开发板
-//ATK-RM04 WIFI模块 公用驱动代码	   
-//正点原子@ALIENTEK
-//技术论坛:www.openedv.com
-//修改日期:2014/4/3
-//版本：V1.0
-//版权所有，盗版必究。
-//Copyright(C) 广州市星翼电子科技有限公司 2009-2019
-//All rights reserved									  
-/////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-//用户配置区
 
-//连接端口号:8086,可自行修改为其他端口.
-const u8* portnum="8086";		 
+const u8* portnum="30000";		 
 
 //WIFI STA模式,设置要去连接的路由器无线参数,请根据你自己的路由器设置,自行修改.
 const u8* wifista_ssid="05zwp";			//路由器SSID号
@@ -26,7 +11,7 @@ const u8* wifista_password="301415926"; 	//连接密码
 const u8* remoteIp ="192.168.1.30";
 
 
-void atk_rm04_init(void)
+int atk_rm04_init(void)
 {
 #if AT_MODE_CONFIG==0
 	RCC->APB2ENR|=1<<2;    	//PA时钟使能	   
@@ -35,9 +20,7 @@ void atk_rm04_init(void)
 	ES_CTRL=1;	//PA4输出高
 #endif
  	USART2_Init(36,115200);	//初始化串口2 	
-	
-	printf("wifi model init ok ");
-	
+	return 0;
 } 
 
 //ATK-RM04发送命令后,检测接收到的应答
@@ -159,67 +142,24 @@ u8 atk_rm04_get_wifista_state(void)
 //ATK-RM04模块测试主函数
 void atk_rm04_test(void)
 {
-	u8 key;
-	u8 timex;
+	
+	
 	
 	atk_rm04_quit_trans();//退出透传 
+	
+	printf(" searching wifi model....... \n");
 	while(atk_rm04_send_cmd("at","\r\n",20))//检查WIFI模块是否在线
 	{
-		printf("cant find  wifi model \n");
+		
 		delay_ms(800);
 		atk_rm04_quit_trans();//退出透传 
 	} 	
 	
-	printf("  find  wifi model begin sta \n");
+	delay_ms(10);
+	printf("  finded wifi model try to set wifi model..... \n");
 	atk_rm04_wifista_test();//WIFI STA测试
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

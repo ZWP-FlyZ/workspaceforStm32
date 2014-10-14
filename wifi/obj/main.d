@@ -9,7 +9,8 @@
 ..\obj\main.o: ..\system\usart\usart.h
 ..\obj\main.o: D:\Keil\ARM\ARMCC\bin\..\include\stdio.h
 ..\obj\main.o: ..\system\delay\delay.h
-..\obj\main.o: ..\hardware\led\LED.h
 ..\obj\main.o: ..\wifi\common.h
+..\obj\main.o: ..\hardware\led\led.h
 ..\obj\main.o: D:\Keil\ARM\ARMCC\bin\..\include\string.h
 ..\obj\main.o: ..\hardware\USART2\usart2.h
+..\obj\main.o: ..\hardware\Init\init.h

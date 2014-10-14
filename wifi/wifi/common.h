@@ -29,7 +29,7 @@
 //ES/RST信号控制IO口.
 #define ES_CTRL				PAout(4)		//ES/RST控制引脚
 /////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-void atk_rm04_init(void);
+int atk_rm04_init(void);
 
 void atk_rm04_at_response(u8 mode);
 u8* atk_rm04_check_cmd(u8 *str);
@@ -48,7 +48,6 @@ void atk_rm04_mtest_ui(u16 x,u16 y);
 
 u8 atk_rm04_ip_set(u8* title,u8* mode,u8* port,u8* ip);
 void atk_rm04_test(void);
-
 
 
 u8 atk_rm04_cometh_test(void);	//串口以太网测试
