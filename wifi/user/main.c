@@ -14,7 +14,8 @@ int main (void)
 		 
 	    state = InitAllDevice();
       if(!state)  printf(" user's devices init ok!\r\n");	
-	    
+	    LED0=0;
+	
 			state = -1;
 			state = atk_rm04_init();		//³õÊ¼»¯RM04Ä£¿é
 			if(!state)   printf(" wifi model init ok \n");

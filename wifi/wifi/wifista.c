@@ -36,7 +36,7 @@ u8 atk_rm04_wifista_test(void)
 		 printf(" wifi model remoteip = %s \n",remoteIp);		 
 	
 	   delay_ms(10);
-     printf(" wifi model is config commit.....  \n");
+     printf(" wifi model config is committing.....  \n");
 
 	if(atk_rm04_send_cmd("at+net_commit=1","\r\n",4000))//提交网络配置,最长可能需要等待40s
  	{ 
@@ -85,7 +85,9 @@ u8 atk_rm04_wifista_test(void)
 				sprintf((char*)p,"收到%d字节,内容如下",rlen);//接收到的字节数	
 				//printf(" recive data %s \n",p);
 				printf(" %s + t= %d\n",USART2_RX_BUF,t);
-				USART2_RX_STA=0;					
+				//printf(" delay 4000\n");
+				LED0=!LED0;
+				USART2_RX_STA=0;	
 			}  
 			
 			
@@ -99,6 +101,7 @@ u8 atk_rm04_wifista_test(void)
 				else
 				  printf(" server is't online  \n"); 
 				t=0; 
+				USART2_RX_STA=0;	
 			}
 			
 			

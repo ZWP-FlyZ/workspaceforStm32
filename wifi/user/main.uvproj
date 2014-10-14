@@ -350,7 +350,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\system\delay;..\system\sys;..\system\usart;..\hardware\led;..\hardware\USART2;..\wifi</IncludePath>
+              <IncludePath>..\system\delay;..\system\sys;..\system\usart;..\hardware\led;..\hardware\USART2;..\wifi;..\hardware\Init;..\Command</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -450,6 +450,31 @@
               <FileName>wifista.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\wifi\wifista.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>init</GroupName>
+          <Files>
+            <File>
+              <FileName>init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\hardware\Init\init.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>command</GroupName>
+          <Files>
+            <File>
+              <FileName>command.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Command\command.c</FilePath>
+            </File>
+            <File>
+              <FileName>task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Command\task.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -350,7 +350,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\system\delay;..\system\sys;..\system\usart;..\hardware\led</IncludePath>
+              <IncludePath>..\system\delay;..\system\sys;..\system\usart;..\hardware\led;..\hardware\USART2;..\wifi</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -431,10 +431,27 @@
               <FileType>1</FileType>
               <FilePath>..\hardware\led\LED.c</FilePath>
             </File>
+            <File>
+              <FileName>usart2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\hardware\USART2\usart2.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>wifi</GroupName>
+          <Files>
+            <File>
+              <FileName>common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\wifi\common.c</FilePath>
+            </File>
+            <File>
+              <FileName>wifista.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\wifi\wifista.c</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

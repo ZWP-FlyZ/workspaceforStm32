@@ -134,8 +134,6 @@ u8 atk_rm04_get_wifista_state(void)
 	u8 *p; 
 	atk_rm04_send_cmd("at+wifi_ConState=?","?",20);	//获取WIFI STA连接状态
 	p=atk_rm04_check_cmd("\r\n"); 
-	
-	printf(" p = %s  \n\n",p);
 	return strstr((const char*)p,"Connected")?1:0;
 }
 
